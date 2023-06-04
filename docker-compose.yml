@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+
+  DotNetKafka_service:
+    image: dotnet-kafka-service
+    container_name: dotnet-kafka-service
+    build:
+      context: .
+      dockerfile: dev.dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://*:5000
+    network_mode: "host"
+    restart: always
